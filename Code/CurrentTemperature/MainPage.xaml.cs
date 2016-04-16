@@ -43,7 +43,7 @@ namespace CurrentTemperature
 
         private async void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
-            // Start GPIO
+            // Uncomment the following to use the rea
             //var gpioController = GpioController.GetDefault();
             //if (gpioController != null)
             //{
@@ -51,7 +51,7 @@ namespace CurrentTemperature
             //    _temperatureSensor = await CreateTmp36Sensor();
             //}
             //else
-                _temperatureSensor = CreateMockSensor();
+                _temperatureSensor = await CreateMockSensor();
 
             _hub = new AzureIoTHub();
         }
@@ -97,7 +97,7 @@ namespace CurrentTemperature
             return tempF;
         }
 
-        private IAnalogSensor CreateMockSensor()
+        private async Task<IAnalogSensor> CreateMockSensor()
         {
             var mockSensor = new MockTemperatureSensor(ReportInterval);
             mockSensor.ReadingChanged += MockSensor_ReadingChanged;

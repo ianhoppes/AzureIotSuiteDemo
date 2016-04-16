@@ -10,7 +10,7 @@ namespace CurrentTemperature
 {
     public class AzureIoTHub
     {
-        private const string DeviceConnectionString = "HostName=gabcdemohub.azure-devices.net;DeviceId=gabcdemodevice;SharedAccessKey=91L+zunmdziMi55xm4+eLk0u55PqWCv0JF38EEeCwnc=";
+        private const string DeviceConnectionString = "";
         private DeviceClient _deviceClient;
 
         public AzureIoTHub()
